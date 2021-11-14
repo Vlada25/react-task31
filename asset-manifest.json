@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/react-task31/static/css/main.e799aed3.chunk.css",
-    "main.js": "/react-task31/static/js/main.40e6b302.chunk.js",
-    "main.js.map": "/react-task31/static/js/main.40e6b302.chunk.js.map",
+    "main.css": "/react-task31/static/css/main.4a4137e4.chunk.css",
+    "main.js": "/react-task31/static/js/main.b3dc4e6e.chunk.js",
+    "main.js.map": "/react-task31/static/js/main.b3dc4e6e.chunk.js.map",
     "runtime-main.js": "/react-task31/static/js/runtime-main.b4aa4b2b.js",
     "runtime-main.js.map": "/react-task31/static/js/runtime-main.b4aa4b2b.js.map",
     "static/js/2.61f41ef6.chunk.js": "/react-task31/static/js/2.61f41ef6.chunk.js",
@@ -10,13 +10,13 @@
     "static/js/3.b22d84d5.chunk.js": "/react-task31/static/js/3.b22d84d5.chunk.js",
     "static/js/3.b22d84d5.chunk.js.map": "/react-task31/static/js/3.b22d84d5.chunk.js.map",
     "index.html": "/react-task31/index.html",
-    "static/css/main.e799aed3.chunk.css.map": "/react-task31/static/css/main.e799aed3.chunk.css.map",
+    "static/css/main.4a4137e4.chunk.css.map": "/react-task31/static/css/main.4a4137e4.chunk.css.map",
     "static/js/2.61f41ef6.chunk.js.LICENSE.txt": "/react-task31/static/js/2.61f41ef6.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.b4aa4b2b.js",
     "static/js/2.61f41ef6.chunk.js",
-    "static/css/main.e799aed3.chunk.css",
-    "static/js/main.40e6b302.chunk.js"
+    "static/css/main.4a4137e4.chunk.css",
+    "static/js/main.b3dc4e6e.chunk.js"
   ]
 }
