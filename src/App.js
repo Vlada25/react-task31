@@ -3,9 +3,7 @@ import CounterContainer from "./components/CounterContainer";
 
 function App() {
   return (
-    <div>
-      <CounterContainer></CounterContainer>
-    </div>
+    <CounterContainer></CounterContainer>
   );
 }
 
