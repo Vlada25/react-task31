@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from '@mui/material';
 import PropTypes from 'prop-types';
-import styles from '../views/Counter/styles.js';
+import styles from './styles.js';
 
 function Counter({count, increment, decrement, reset}) {
     return (

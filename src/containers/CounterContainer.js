@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Counter from './Counter'
+import Counter from '../components/Counter/ingex'
 
 export default class CounterContainer extends Component {
     constructor (props){
