@@ -1,12 +1,14 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types';
 import Counter from '../components/Counter/ingex'
 
-export default class CounterContainer extends Component {
-    constructor (props){
-        super(props);
+class CounterContainer extends Component {
+    constructor ({id, count}){
+        super({id, count});
 
         this.state = {
-            count: 0
+            id: id,
+            count: count
         };
 
         this.increment = this.increment.bind(this);
@@ -35,6 +37,7 @@ export default class CounterContainer extends Component {
     render() {
         return (
             <Counter 
+                id={this.state.id}
                 count={this.state.count} 
                 increment={this.increment}
                 decrement={this.decrement}
@@ -43,3 +46,10 @@ export default class CounterContainer extends Component {
         )
     }
 }
+
+CounterContainer.propTypes = {
+    id: PropTypes.number.isRequired,
+    count: PropTypes.number.isRequired
+}
+
+export default CounterContainer
