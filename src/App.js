@@ -2,15 +2,16 @@ import React from "react";
 import CounterContainer from "./containers/CounterContainer";
 import ParentCounter from "./components/ParentCounter";
 
-function App() {
+const App = () => {
   const [counters, setCounters] = React.useState([
     { id: 1, count: 0},
   ])
 
   const [isAdded, setIsAdded] = React.useState(false)
 
-  function addCounter() {
+  const addCounter = () => {
     setIsAdded(true)
+
     setCounters([
       ...counters,
       {
@@ -20,10 +21,10 @@ function App() {
     ])
   }
 
-  function removeLastCounter() {
+  const removeLastCounter = () => {
     if (counters.length > 1){
-      setCounters(counters.slice(0, -1))
       setIsAdded(false)
+      setCounters(counters.slice(0, -1))
     }
   }
 

@@ -59,7 +59,7 @@ class CounterContainer extends Component {
                 })
             }
         }
-        if (!nextProps.isAdded){
+        else {
             if (this.state.count % 2 === 1){
                 this.decrement()
                 this.setState({
