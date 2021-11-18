@@ -3,7 +3,7 @@ import { Button } from '@mui/material';
 import PropTypes from 'prop-types';
 import styles from './styles.js';
 
-function ParentCounter({add, remove}) {
+const ParentCounter = ({add, remove}) => {
     return (
         <div  style={styles.parentCounter}>
             <Button style={styles.button} variant="outlined" onClick={add}>Add new counter</Button>

@@ -10,25 +10,21 @@ class CounterContainer extends Component {
             id: id,
             count: count
         };
-
-        this.increment = this.increment.bind(this);
-        this.decrement = this.decrement.bind(this);
-        this.reset = this.reset.bind(this);
     }
 
-    increment() {
+    increment = () => {
         this.setState(state => ({
             count: state.count + 1
         }))
     }
 
-    decrement(){
+    decrement = () => {
         this.setState(state => ({
             count: state.count - 1
         }))
     }
 
-    reset() {
+    reset = () => {
         this.setState({
             count: 0
         })
@@ -41,8 +37,7 @@ class CounterContainer extends Component {
                 count={this.state.count} 
                 increment={this.increment}
                 decrement={this.decrement}
-                reset={this.reset}>
-            </Counter>
+                reset={this.reset}/>
         )
     }
 }

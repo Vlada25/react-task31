@@ -27,12 +27,12 @@ function App() {
     <div>
       <ParentCounter 
         add={addCounter} 
-        remove={removeLastCounter}></ParentCounter>
+        remove={removeLastCounter}/>
       <div className="counter-container">
         {counters.map(counter => {
           return <CounterContainer 
             id={counter.id}
-            count={counter.count}></CounterContainer>
+            count={counter.count}/>
         })}
       </div>
     </div>
