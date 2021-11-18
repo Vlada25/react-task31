@@ -8,7 +8,8 @@ class CounterContainer extends Component {
 
         this.state = {
             id: props.id,
-            count: props.count
+            count: props.count,
+            isRender: true
         };
     }
 
@@ -42,27 +43,44 @@ class CounterContainer extends Component {
         console.log("componentWillUnmount", this.state.id)
     }
 
-    // getDerivedStateFromProps
+    componentWillReceiveProps(nextProps) {
+        console.log("componentWillRecieveProps", this.state.id)
+        if (nextProps.isAdded){
+            if (this.state.count % 2 === 0)
+            {
+                this.increment()
+                this.setState({
+                    isRender: true
+                })
+            }
+            else {
+                this.setState({
+                    isRender: false
+                })
+            }
+        }
+        if (!nextProps.isAdded){
+            if (this.state.count % 2 === 1){
+                this.decrement()
+                this.setState({
+                    isRender: true
+                })
+            }
+            else{
+                this.setState({
+                    isRender: false
+                })
+            }
+        }
+    }
 
-    shouldComponentUpdate() {
+    shouldComponentUpdate(nextProps, nextState) {
         console.log("shouldComponentUpdate", this.state.id)
-        if (this.props.isAdded === true){
-            return true
+        if (!this.state.isRender){
+            return false
         }
         return true
     }
-
-    componentWillReceiveProps(nextProps) {
-        console.log("componentWillRecieveProps", this.state.id)
-        if (nextProps.isAdded && this.state.count % 2 === 0){
-            this.increment()
-        }
-        if (!nextProps.isAdded && this.state.count % 2 === 1){
-            this.decrement()
-        }
-    }
-
-    // getSnapshotBeforeUpdate
 
     render() {
         console.log("render", this.state.id)
