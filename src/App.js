@@ -31,6 +31,7 @@ function App() {
       <div className="counter-container">
         {counters.map(counter => {
           return <CounterContainer 
+            key={counter.id}
             id={counter.id}
             count={counter.count}/>
         })}
