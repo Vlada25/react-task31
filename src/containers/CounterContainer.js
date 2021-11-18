@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types';
-import Counter from '../components/Counter/ingex'
+import Counter from '../components/Counter/index'
 
 class CounterContainer extends Component {
     constructor ({id, count}){

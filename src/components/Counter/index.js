@@ -3,7 +3,7 @@ import { Button } from '@mui/material';
 import PropTypes from 'prop-types';
 import styles from './styles.js';
 
-function Counter({id, count, increment, decrement, reset}) {
+const Counter = ({id, count, increment, decrement, reset}) => {
     return (
         <div style={styles.counter}>
             <h2 style={styles.counter.h2}>Counter {id}</h2>
