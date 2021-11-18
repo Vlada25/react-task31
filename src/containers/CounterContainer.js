@@ -31,27 +31,41 @@ class CounterContainer extends Component {
     }
 
     componentDidMount() {
-        console.log("componentDidMount")
+        console.log("componentDidMount", this.state.id)
     }
 
     componentDidUpdate() {
-        console.log("componentDidUpdate")
+        console.log("componentDidUpdate", this.state.id)
     }
 
     componentWillUnmount() {
-        console.log("componentWillUnmount")
+        console.log("componentWillUnmount", this.state.id)
     }
 
     // getDerivedStateFromProps
 
-    // shouldComponentUpdate
+    shouldComponentUpdate() {
+        console.log("shouldComponentUpdate", this.state.id)
+        if (this.props.isAdded === true){
+            return true
+        }
+        return true
+    }
 
-    // UNSAFE_componentWillRecieveProps
+    componentWillReceiveProps(nextProps) {
+        console.log("componentWillRecieveProps", this.state.id)
+        if (nextProps.isAdded && this.state.count % 2 === 0){
+            this.increment()
+        }
+        if (!nextProps.isAdded && this.state.count % 2 === 1){
+            this.decrement()
+        }
+    }
 
     // getSnapshotBeforeUpdate
 
     render() {
-        console.log("render")
+        console.log("render", this.state.id)
         return (
             <Counter 
                 id={this.state.id}

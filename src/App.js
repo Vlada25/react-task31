@@ -7,7 +7,10 @@ function App() {
     { id: 1, count: 0},
   ])
 
+  const [isAdded, setIsAdded] = React.useState(false)
+
   function addCounter() {
+    setIsAdded(true)
     setCounters([
       ...counters,
       {
@@ -20,6 +23,7 @@ function App() {
   function removeLastCounter() {
     if (counters.length > 1){
       setCounters(counters.slice(0, -1))
+      setIsAdded(false)
     }
   }
 
@@ -33,7 +37,8 @@ function App() {
           return <CounterContainer 
             key={counter.id}
             id={counter.id}
-            count={counter.count}/>
+            count={counter.count}
+            isAdded={isAdded}/>
         })}
       </div>
     </div>
