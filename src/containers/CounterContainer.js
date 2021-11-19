@@ -74,12 +74,8 @@ class CounterContainer extends Component {
         }
     }
 
-    shouldComponentUpdate(nextProps, nextState) {
+    shouldComponentUpdate() {
         console.log("shouldComponentUpdate", this.state.id)
-        /*
-        if (!this.state.isRender){
-            return false
-        }*/
         return true
     }
 
