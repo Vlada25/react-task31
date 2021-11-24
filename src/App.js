@@ -1,6 +1,10 @@
-import React from "react";
+import React from 'react';
 import CounterContainer from "./containers/CounterContainer";
 import ParentCounter from "./components/ParentCounter";
+import AboutUs from "./components/AboutUs";
+import { Tabs, Tab } from '@mui/material'
+import { BrowserRouter, Route, Switch, Link, Redirect} from 'react-router-dom';
+
 
 const App = () => {
   const [counters, setCounters] = React.useState([
@@ -8,6 +12,8 @@ const App = () => {
   ])
 
   const [isAdded, setIsAdded] = React.useState(false)
+
+  const routes = ['/about', '/counters']
 
   const addCounter = () => {
     setIsAdded(true)
@@ -30,18 +36,44 @@ const App = () => {
 
   return (
     <div>
-      <ParentCounter 
-        add={addCounter} 
-        remove={removeLastCounter}/>
-      <div className="counter-container">
-        {counters.map(counter => {
-          return <CounterContainer 
-            key={counter.id}
-            id={counter.id}
-            count={counter.count}
-            isAdded={isAdded}/>
-        })}
+      <BrowserRouter>
+      <div className="App">
+        <Switch>
+        <Route
+          path="/"
+          component={({ location }) => (
+            <div>
+              <Tabs value={location.pathname}>
+                <Tab label="About us" value={routes[0]} component={Link} to={routes[0]} />
+                <Tab label="Counters" value={routes[1]} component={Link} to={routes[1]} />
+              </Tabs>
+              <Switch>
+                <Route path="/about" component={AboutUs} />
+                <Route path="/counters" component={() => 
+                <div>
+                  <ParentCounter 
+                    add={addCounter} 
+                    remove={removeLastCounter}/>
+                    <div className="counter-container">
+                      {counters.map(counter => {
+                      return <CounterContainer 
+                        key={counter.id}
+                        id={counter.id}
+                        count={counter.count}
+                        isAdded={isAdded}/>
+                      })}
+                    </div>
+                </div>} />
+                <Route path="/404" component={() => <div>404</div>} />
+                <Redirect to="/404"/>
+              </Switch>
+            </div>
+          )}
+        />
+        
+        </Switch>
       </div>
+    </BrowserRouter>
     </div>
   );
 }

@@ -1,43 +1,28 @@
-import React, { Component } from 'react'
+import React from 'react'
+// { useEffect }
 import PropTypes from 'prop-types';
 import Counter from '../components/Counter/index'
 
-class CounterContainer extends Component {
-    constructor (props){
-        super(props);
+const CounterContainer = (props) => {
+    const [id] = React.useState(props.id)
+    const [count, setCount] = React.useState(props.count)
 
-        this.state = {
-            id: props.id,
-            count: props.count,
-            isRender: true
-        };
+    const increment = () => {
+        setCount(count + 1)
     }
 
-    increment = () => {
-        this.setState(state => ({
-            count: state.count + 1
-        }))
+    const decrement = () => {
+        setCount(count - 1)
     }
 
-    decrement = () => {
-        this.setState(state => ({
-            count: state.count - 1
-        }))
+    const reset = () => {
+        setCount(0)
     }
 
-    reset = () => {
-        this.setState({
-            count: 0
-        })
-    }
-
-    componentDidMount() {
-        console.log("componentDidMount", this.state.id)
-    }
-
-    componentDidUpdate() {
-        console.log("componentDidUpdate", this.state.id)
-    }
+    /* Аналогично componentDidMount и componentDidUpdate:
+    useEffect(() => {
+        console.log("componentDidMount, componentDidUpdate", id)
+    });
 
     componentWillUnmount() {
         console.log("componentWillUnmount", this.state.id)
@@ -45,32 +30,11 @@ class CounterContainer extends Component {
 
     componentWillReceiveProps(nextProps) {
         console.log("componentWillRecieveProps", this.state.id)
-        if (nextProps.isAdded){
-            if (this.state.count % 2 === 0)
-            {
-                this.increment()
-                this.setState({
-                    isRender: true
-                })
-            }
-            else {
-                this.setState({
-                    isRender: false
-                })
-            }
+        if (nextProps.isAdded && this.state.count % 2 === 0){
+            this.increment()
         }
-        else {
-            if (this.state.count % 2 === 1){
-                this.decrement()
-                this.setState({
-                    isRender: true
-                })
-            }
-            else{
-                this.setState({
-                    isRender: false
-                })
-            }
+        else if (nextProps.isAdded && this.state.count % 2 !== 0) {
+            this.decrement()
         }
     }
 
@@ -78,18 +42,15 @@ class CounterContainer extends Component {
         console.log("shouldComponentUpdate", this.state.id)
         return true
     }
-
-    render() {
-        console.log("render", this.state.id)
-        return (
-            <Counter 
-                id={this.state.id}
-                count={this.state.count} 
-                increment={this.increment}
-                decrement={this.decrement}
-                reset={this.reset}/>
-        )
-    }
+*/
+    return (
+        <Counter 
+            id={id}
+            count={count} 
+            increment={increment}
+            decrement={decrement}
+            reset={reset}/>
+    )
 }
 
 CounterContainer.propTypes = {

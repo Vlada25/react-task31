@@ -20,7 +20,7 @@ const Counter = ({id, count, increment, decrement, reset}) => {
 }
 
 Counter.propTypes = {
-    id: PropTypes.number.isRequired.bind,
+    id: PropTypes.number.isRequired,
     count: PropTypes.number.isRequired,
     increment: PropTypes.func.isRequired,
     decrement: PropTypes.func.isRequired,
